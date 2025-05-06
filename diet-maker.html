@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet Maker</title>
+</head>
+<body>
+  <link rel="stylesheet" href=".css">
+</body>
+</html>
+
+
+<nav class="navigation">
+  <div class="nav-container">
+    <a class="brand-logo">HealthCare</a>
+    <div class="nav-links">
+      <a class="nav-link" href="style.css">
+        <p>TeleMedicine</p>
+      </a>
+      
+      </a>
+      <a href="index.html" class="nav-link active">
+        <p>Home</p>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main class="main-content">
+  <section class="diet-maker-section">
+    <div class="diet-maker-container">
+      <h1 class="section-title">Personalized Diet Plan</h1>
+
+      <div class="diet-steps">
+        <div class="step-indicator">
+          <div class="step active">1</div>
+          <div class="step">2</div>
+          <div class="step">3</div>
+        </div>
+
+        <div class="preference-section">
+          <h2 class="preference-title">Choose Your Preference</h2>
+          <div class="preference-cards">
+            <div class="preference-card" onclick="selectPreference('veg')">
+              <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg" alt="Vegetarian" class="preference-image">
+              <h3>Vegetarian</h3>
+              <p>Plant-based diet with dairy products</p>
+              <div class="selection-indicator"></div>
+            </div>
+            <div class="preference-card" onclick="selectPreference('non-veg')">
+              <img src="https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg" alt="Non-Vegetarian" class="preference-image">
+              <h3>Non-Vegetarian</h3>
+              <p>Includes meat and fish options</p>
+              <div class="selection-indicator"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="goals-section">
+          <h2 class="goals-title">Select Your Goal</h2>
+          <div class="goals-cards">
+            <div class="goal-card" onclick="selectGoal('gain')">
+              <div class="goal-icon weight-gain"></div>
+              <h3>Weight Gain</h3>
+              <p>Healthy diet plan to gain weight</p>
+              <div class="selection-indicator"></div>
+            </div>
+            <div class="goal-card" onclick="selectGoal('loss')">
+              <div class="goal-icon weight-loss"></div>
+              <h3>Weight Loss</h3>
+              <p>Balanced diet for weight loss</p>
+              <div class="selection-indicator"></div>
+            </div>
+            <div class="goal-card" onclick="selectGoal('normal')">
+              <div class="goal-icon maintenance"></div>
+              <h3>Normal Diet</h3>
+              <p>Maintain healthy eating habits</p>
+              <div class="selection-indicator"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="secondary-button" onclick="previousStep()">Previous</button>
+          <button class="primary-button" onclick="nextStep()">Next</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main><script>
+  let currentStep = 1;
+let selectedPreference = null;
+let selectedGoal = null;
+
+function selectPreference(preference) {
+  selectedPreference = preference;
+  document.querySelectorAll('.preference-card').forEach(card => {
+    card.classList.remove('selected');
+  });
+  event.currentTarget.classList.add('selected');
+}
+
+function selectGoal(goal) {
+  selectedGoal = goal;
+  document.querySelectorAll('.goal-card').forEach(card => {
+    card.classList.remove('selected');
+  });
+  event.currentTarget.classList.add('selected');
+}
+
+function updateStepIndicator() {
+  document.querySelectorAll('.step').forEach((step, index) => {
+    step.classList.toggle('active', index + 1 === currentStep);
+  });
+}
+
+function showCurrentStep() {
+  const preferenceSection = document.querySelector('.preference-section');
+  const goalsSection = document.querySelector('.goals-section');
+
+  switch(currentStep) {
+    case 1:
+      preferenceSection.style.display = 'block';
+      goalsSection.style.display = 'none';
+      break;
+    case 2:
+      preferenceSection.style.display = 'none';
+      goalsSection.style.display = 'block';
+      break;
+    case 3:
+      if (selectedPreference && selectedGoal) {
+        switch(selectedGoal) {
+          case 'loss':
+            window.location.href = 'weightloss.html';
+            break;
+          case 'gain':
+            window.location.href = 'weightgain.html';
+            break;
+          case 'normal':
+            window.location.href = 'diet.html';
+            break;
+        }
+      } else {
+        alert('Please make all selections before proceeding');
+        currentStep = 2;
+      }
+      break;
+  }
+}
+
+function nextStep() {
+  if (currentStep < 3) {
+    currentStep++;
+    updateStepIndicator();
+    showCurrentStep();
+  }
+}
+
+function previousStep() {
+  if (currentStep > 1) {
+    currentStep--;
+    updateStepIndicator();
+    showCurrentStep();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  showCurrentStep();
+});
+</script>

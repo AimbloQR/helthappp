@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Maker</title>
+</head>
+<body>
+    <link rel="stylesheet" href="style.css">
+</body>
+</html>
+
+<nav class="navigation">
+    <div class="nav-container">
+      <a  class="brand-logo">HealthCare</a>
+      <div class="nav-links">
+        <a class="nav-link" href="tele.html"><p>TeleMedicine</p></a>
+        
+        <a href="index.html" class="nav-link active"><p>Home</p></a>
+      </div>
+    </div>
+  </nav>
+  
+  <main class="main-content">
+    <section class="diet-plan-section">
+      <div class="diet-container">
+        <h1 class="section-title">Weight Gain Diet Plan</h1>
+        <div class="preference-toggle">
+          <button class="toggle-btn active" onclick="togglePreference('veg')">Vegetarian</button>
+          <button class="toggle-btn" onclick="togglePreference('nonveg')">Non-Vegetarian</button>
+        </div>
+  
+        <div class="meal-plan-grid">
+          <div class="meal-card">
+            <h2 class="meal-title">Breakfast (8:00 AM)</h2>
+            <div class="meal-content veg">
+              <ul class="meal-list">
+                <li>Protein smoothie with banana and peanut butter</li>
+                <li>Oatmeal with nuts and dried fruits (2 cups)</li>
+                <li>Whole grain toast with avocado</li>
+                <li>Mixed fruit juice</li>
+              </ul>
+              <div class="nutrition-info">
+                <span>Calories: 800</span>
+                <span>Protein: 25g</span>
+                <span>Carbs: 100g</span>
+              </div>
+            </div>
+            <div class="meal-content nonveg hidden">
+              <ul class="meal-list">
+                <li>4 egg omelet with cheese</li>
+                <li>Whole grain toast (2 slices)</li>
+                <li>Chicken sausages</li>
+                <li>Mixed fruit juice</li>
+              </ul>
+              <div class="nutrition-info">
+                <span>Calories: 850</span>
+                <span>Protein: 45g</span>
+                <span>Carbs: 65g</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="meal-card">
+            <h2 class="meal-title">Mid-Morning (11:00 AM)</h2>
+            <div class="meal-content veg">
+              <ul class="meal-list">
+                <li>Trail mix (1 cup)</li>
+                <li>Protein shake</li>
+                <li>Banana with peanut butter</li>
+              </ul>
+              <div class="nutrition-info">
+                <span>Calories: 500</span>
+                <span>Protein: 20g</span>
+                <span>Carbs: 45g</span>
+              </div>
+            </div>
+            <div class="meal-content nonveg hidden">
+              <ul class="meal-list">
+                <li>Protein shake with whole milk</li>
+                <li>Turkey and cheese sandwich</li>
+                <li>Mixed nuts (1 cup)</li>
+              </ul>
+              <div class="nutrition-info">
+                <span>Calories: 600</span>
+                <span>Protein: 40g</span>
+                <span>Carbs: 40g</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="meal-card">
+            <h2 class="meal-title">Lunch (2:00 PM)</h2>
+            <div class="meal-content veg">
+              <ul class="meal-list">
+                <li>Rice with lentils (2 cups)</li>
+                <li>Paneer curry</li>
+                <li>Mixed vegetables</li>
+                <li>Yogurt smoothie</li>
+              </ul>
+              <div class="nutrition-info">
+                <span>Calories: 800</span>
+                <span>Protein: 30g</span>
+                <span>Carbs: 100g</span>
+              </div>
+            </div>
+            <div class="meal-content nonveg hidden">
+              <ul class="meal-list">
+                <li>Grilled chicken (8 oz)</li>
+                <li>Brown rice (2 cups)</li>
+                <li>Avocado salad</li>
+                <li>Protein shake</li>
+              </ul>
+              <div class="nutrition-info">
+                <span>Calories: 900</span>
+                <span>Protein: 60g</span>
+                <span>Carbs: 90g</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="meal-card">
+            <h2 class="meal-title">Evening Snack (5:00 PM)</h2>
+            <div class="meal-content veg">
+              <ul class="meal-list">
+                <li>Protein bars (2)</li>
+                <li>Mixed fruit smoothie</li>
+                <li>Nuts and dried fruits</li>
+              </ul>
+              <div class="nutrition-info">
+                <span>Calories: 450</span>
+                <span>Protein: 20g</span>
+                <span>Carbs: 55g</span>
+              </div>
+            </div>
+            <div class="meal-content nonveg hidden">
+              <ul class="meal-list">
+                <li>Tuna sandwich</li>
+                <li>Protein shake</li>
+                <li>Banana with peanut butter</li>
+              </ul>
+              <div class="nutrition-info">
+                <span>Calories: 500</span>
+                <span>Protein: 35g</span>
+                <span>Carbs: 50g</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="meal-card">
+            <h2 class="meal-title">Dinner (8:00 PM)</h2>
+            <div class="meal-content veg">
+              <ul class="meal-list">
+                <li>Quinoa bowl with tofu</li>
+                <li>Bean curry</li>
+                <li>Roasted vegetables</li>
+                <li>Protein shake before bed</li>
+              </ul>
+              <div class="nutrition-info">
+                <span>Calories: 750</span>
+                <span>Protein: 35g</span>
+                <span>Carbs: 85g</span>
+              </div>
+            </div>
+            <div class="meal-content nonveg hidden">
+              <ul class="meal-list">
+                <li>Salmon fillet (8 oz)</li>
+                <li>Sweet potato mash</li>
+                <li>Steamed vegetables</li>
+                <li>Protein shake before bed</li>
+              </ul>
+              <div class="nutrition-info">
+                <span>Calories: 800</span>
+                <span>Protein: 55g</span>
+                <span>Carbs: 70g</span>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="daily-summary">
+          <h2>Daily Nutritional Summary</h2>
+          <div class="summary-content">
+            <div class="summary-item">
+              <span class="label">Total Calories:</span>
+              <span class="value">3300-3650</span>
+            </div>
+            <div class="summary-item">
+              <span class="label">Total Protein:</span>
+              <span class="value">130-235g</span>
+            </div>
+            <div class="summary-item">
+              <span class="label">Total Carbs:</span>
+              <span class="value">385-320g</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
